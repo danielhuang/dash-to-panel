@@ -43,6 +43,7 @@ const Main = imports.ui.main;
 const PopupMenu = imports.ui.popupMenu;
 const Util = imports.misc.util;
 const Workspace = imports.ui.workspace;
+const BoxPointer = imports.ui.boxpointer;
 
 const Me = imports.misc.extensionUtils.getCurrentExtension();
 const Utils = Me.imports.utils;
@@ -672,7 +673,7 @@ var taskbarAppIcon = Utils.defineClass({
 
         this.actor.set_hover(true);
         this._menu.actor.add_style_class_name('dashtopanelSecondaryMenu');
-        this._menu.popup();
+        this._menu.open(BoxPointer.PopupAnimation.FULL);
         this._menuManager.ignoreRelease();
         this.emit('sync-tooltip');
 
@@ -1794,7 +1795,7 @@ var ShowAppsIconWrapper = Utils.defineClass({
         //this.emit('menu-state-changed', true);
 
         this.actor.set_hover(true);
-        this._menu.popup();
+        this._menu.open(BoxPointer.PopupAnimation.FULL);
         this._menuManager.ignoreRelease();
         this.emit('sync-tooltip');
 
